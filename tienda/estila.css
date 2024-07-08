@@ -1,0 +1,63 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kalam', cursive;
+    background-repeat: no-repeat;
+    background-size: cover;
+   color:#333;
+  }
+
+  .btn{
+    font-size: 28px;
+    color:#333;
+    background-color:#0000;
+    border: 0;
+    font-family: 'Kalam', cursive;
+    cursor:pointer;
+    }
+
+  header .logo img {
+    width: 100%;
+  }
+  
+  .main-banner img {
+    width: 50%; 
+    max-width: 100%;
+    height: auto; 
+  }
+  
+  .categories .category {
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .categories .category:hover {
+    transform: scale(1.1);
+  }
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+  }
+  
+  .menú{
+    background-color: #fff; 
+    margin: auto;
+    font-family: 'Kalam', cursive;
+    color:black;
+ }
+
+ .line{
+    width: 100%; /* Ancho de la línea divisora */
+    margin: 0 auto; /* Centramos la línea */
+    border-top: 2px solid #000; /* Línea de 2px de grosor y color negro */
+    margin-top: 20px; /* Espacio superior */
+    margin-bottom: 20px; /* Espacio inferior */
+ }
+
+ .in{
+  align-items: center;
+
+ }

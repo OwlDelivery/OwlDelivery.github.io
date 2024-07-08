@@ -1,0 +1,80 @@
+  .btn{
+   font-size: 28px;
+   color:#333;
+   background-color:#0000;
+   border: 0;
+   font-family: 'Kalam', cursive;
+   cursor:pointer;
+   }
+   
+   .btn:hover{
+transform:scale(1.10);
+   }
+   
+   #img{
+	   transition: all 0.3s;
+   }
+   
+   #img:hover{
+    transform: scale(1.2);
+}
+
+
+   body{
+   font-family: 'Kalam', cursive;
+   background-repeat: no-repeat;
+   background-size: cover;
+	color:#333;
+   }
+
+   .sesion{
+      font-size:10px;
+      }
+   
+   .fondo{
+   font-family: 'Kalam', cursive;
+    background-color:#ffeb3b;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+   }
+   
+   .fondo .logo img{
+    transition: all 0.3s;
+}
+
+   .menu{
+   font-family: 'Kalam', cursive;
+   color:black;
+   }
+   
+	a:link, a:visited, a:active {
+            text-decoration:none;
+   }
+   
+   .font{
+   font-family: 'Kalam', cursive;
+   }
+   
+   #slider-box{
+	   border:none;
+	   background-color:none;
+	   overflow: hidden;
+   }
+   
+   .info{
+	   font-family: 'Kalam', cursive;
+      font-size: 20px;
+   }
+
+   .titulo2{
+   margin: auto;
+   width: 60%;
+
+   }
+
+   .menú{
+      font-family: 'Kalam', cursive;
+      background-color: #fff; 
+      margin: auto;
+   }

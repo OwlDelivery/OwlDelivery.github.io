@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="estilo.css">
+    <title>OLW Delivery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .contenedor {
+            width: 80%;
+            margin: auto;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .logo-titulo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #000;
+        }
+
+        .logo-titulo h1 {
+            margin-left: 10px;
+        }
+
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #000;
+        }
+
+        .carrito {
+            display: flex;
+            align-items: center;
+        }
+
+        .icono-carrito {
+            position: relative;
+        }
+
+        .total-item-carrito {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: red;
+            color: #fff;
+            border-radius: 50%;
+            padding: 5px;
+            font-size: 12px;
+        }
+
+        .contenedor-seccion {
+            padding: 20px 0;
+        }
+
+        .mi-carrito .fila {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .mi-carrito .col {
+            flex: 1;
+            text-align: center;
+        }
+
+        .mi-carrito .col.descripcion {
+            flex: 3;
+            display: flex;
+            align-items: center;
+        }
+
+        .mi-carrito .col.descripcion img {
+            width: 50px;
+            margin-right: 10px;
+        }
+
+        .mi-carrito .col.cantidad button {
+            cursor: pointer;
+        }
+
+        .mi-carrito .col.color span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: red;
+        }
+
+        .finalizar-compra {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .btn-pagar {
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .add-to-cart {
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <header>
+            <div class="logo-titulo">
+                <a href="index.html">
+                    <i class="fa-regular fa-circle-dot"></i>
+                    <h1>OLW Delivery</h1>
+                </a>
+            </div>
+            <nav id="nav">
+                <a href="index.html">Inicio</a>
+                <a href="tienda.html">Tienda</a>
+                <a href="blog.html">Blog</a>
+                <a href="contacto.html">Contacto</a>
+                <span id="close-responsive">
+                    <i class="fa-solid fa-xmark"></i>
+                </span>
+            </nav>
+            <div id="nav-responsive">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="carrito">
+                <span class="total-compra">$ 0.00</span>
+                <a href="carrito.html">
+                    <span class="icono-carrito">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <div class="total-item-carrito">0</div>
+                    </span>
+                </a>
+            </div>
+        </header>
+
+        <section class="contenedor-seccion">
+            <div class="fondo-seccion"></div>
+            <div class="header-seccion">
+                <div class="col">
+                    <strong><span class="link-blanco">Inicio</span> / Carrito</strong>
+                </div>
+                <div class="centro">
+                    <h2>Mi Carrito</h2>
+                </div>
+                <div class="col busqueda">
+                    
+                </div>
+            </div>
+
+            <section class="mi-carrito">
+                <div class="productos-carrito">
+                    <div class="fila">
+                        <div class="col descripcion">
+                            <strong>Descripción</strong> 
+                        </div>
+                        <div class="col talle">
+                            <strong>Talle</strong>
+                        </div>
+                        <div class="col color">
+                            <strong>Color</strong>
+                        </div>
+                        <div class="col cantidad">
+                            <strong>Cantidad</strong>
+                        </div>
+                        <div class="col eliminar">
+                            <strong>Eliminar</strong>
+                        </div>
+                        <div class="col precio">
+                            <strong>Precio</strong>
+                        </div>
+                    </div>
+                    <!-- Aquí se añadirán dinámicamente los productos -->
+                </div>
+                <div class="finalizar-compra">
+                    <h3>Total Compra</h3>
+                    <div class="monto">$ 0.00</div>
+                    <button class="btn-pagar">PAGAR</button>
+                </div>
+            </section>
+
+        </section>
+    </div>
+
+    <script>
+        let totalPrice = 0;
+        let totalItems = 0;
+        const cart = document.querySelector('.productos-carrito');
+        const totalCompra = document.querySelector('.total-compra');
+        const totalItemCarrito = document.querySelector('.total-item-carrito');
+        const montoTotal = document.querySelector('.monto');
+
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                const name = button.getAttribute('data-name');
+                const price = parseFloat(button.getAttribute('data-price'));
+
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'fila';
+                itemDiv.innerHTML = `
+                    <div class="col descripcion">
+                        <img src="img/mini-shoes.png" alt="">
+                        <span>${name}</span>
+                    </div>
+                    <div class="col talle">
+                        <span>42</span>
+                    </div>
+                    <div class="col color">
+                        <span class="c1"></span>
+                    </div>
+                    <div class="col cantidad">
+                        <button onclick="increaseQuantity(this)">+</button>
+                        <span class="total-cantidad">1</span>
+                        <button onclick="decreaseQuantity(this)">-</button>
+                    </div>
+                    <div class="col eliminar">
+                        <span onclick="removeItem(this)"><i class="fa-solid fa-xmark"></i></span>
+                    </div>
+                    <div class="col precio">
+                        <span>$ ${price.toFixed(2)}</span>
+                    </div>
+                `;
+                
+                cart.appendChild(itemDiv);
+
+                totalPrice += price;
+                totalItems += 1;
+
+                updateTotal();
+            });
+        });
+
+        function updateTotal() {
+            totalCompra.textContent = ${totalPrice.toFixed(2)};
+            totalItemCarrito.textContent = totalItems;
+            montoTotal.textContent = ${totalPrice.toFixed(2)};
+        }
+
+        function increaseQuantity(button) {
+            const cantidadSpan = button.nextElementSibling;
+            let cantidad = parseInt(cantidadSpan.textContent);
+            cantidad += 1;
+            cantidadSpan.textContent = cantidad;
+
+            const priceSpan = button.closest('.fila').querySelector('.precio span');
+            const price = parseFloat(priceSpan.textContent.replace('$ ', ''));
+            totalPrice += price;
+            updateTotal();
+        }
+
+        function decreaseQuantity(button) {
+            const cantidadSpan = button.previousElementSibling;
+            let cantidad = parseInt(cantidadSpan.textContent);
+            if (cantidad > 1) {
+                cantidad -= 1;
+                cantidadSpan.textContent = cantidad;
+
+                const priceSpan = button.closest('.fila').querySelector('.precio span');
+                const price = parseFloat(priceSpan.textContent.replace('$ ', ''));
+                totalPrice -= price;
+                updateTotal();
+            }
+        }
+
+        function removeItem(button) {
+            const fila = button.closest('.fila');
+            const priceSpan = fila.querySelector('.precio span');
+            const price = parseFloat(priceSpan.textContent.replace('$ ', ''));
+            const cantidadSpan = fila.querySelector('.total-cantidad');
+            const cantidad = parseInt(cantidadSpan.textContent);
+
+            totalPrice -= (price * cantidad);
+            totalItems -= 1;
+
+            fila.remove();
+            updateTotal();
+        }
+    </script>
+</body>
+</html>
